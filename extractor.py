@@ -139,20 +139,20 @@ def createCerts(args):
 
             if args.flat:
                 # Write private key, certificate and chain to flat files
-                with (directory / name + '.key').open('w') as f:
+                with (directory / name '.key').open('w') as f:
                     f.write(privatekey)
-                with (directory / name + '.crt').open('w') as f:
+                with (directory / name '.crt').open('w') as f:
                     f.write(fullchain)
-                with (directory / name + '.chain.pem').open('w') as f:
+                with (directory / name '.chain.pem').open('w') as f:
                     f.write(chain)
 
                 if sans:
                     for name in sans:
-                        with (directory / name + '.key').open('w') as f:
+                        with (directory / name '.key').open('w') as f:
                             f.write(privatekey)
-                        with (directory / name + '.crt').open('w') as f:
+                        with (directory / name '.crt').open('w') as f:
                             f.write(fullchain)
-                        with (directory / name + '.chain.pem').open('w') as f:
+                        with (directory / name '.chain.pem').open('w') as f:
                             f.write(chain)
             else:
                 directory = directory / name
