@@ -183,8 +183,9 @@ class Handler(FileSystemEventHandler):
     def __init__(self, args):
         self.args = args
         self.isWaiting = False
-        self.timer = threading.Timer(0.5, self.doTheWork)
         self.lock = threading.Lock()
+        self.timer = threading.Timer(0.5, self.doTheWork)
+        self.timer.start()
 
     def on_created(self, event):
         self.handle(event)
